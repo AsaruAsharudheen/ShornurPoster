@@ -1,0 +1,119 @@
+/* Container to center the poster */
+.poster-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #eee;
+}
+
+/* Wrapper to contain the poster image and elements */
+.poster-wrapper {
+  position: relative;
+  width: 768px;
+  height: 1194px; /* Same height as your poster image */
+}
+
+/* Poster background */
+.poster-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Upload area for white space */
+.upload-area.second {
+  position: absolute;
+  bottom: 193px;
+  left: 110px;
+  width: 192px;
+  height: 279px;
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 15px;
+}
+
+/* Uploaded image in the white box */
+.image-layer.second {
+  position: absolute;
+  width: 190px;
+  height: 279px;
+  object-fit: cover;
+  z-index: 2;
+  border-radius: 15px;
+}
+
+/* Text overlay */
+.custom-text.second {
+  position: absolute;
+  top: 125px;
+  left: 50px;
+  width: 500px;
+  color: #ffffff;
+  font-size: 22px;
+  text-align: left;
+  font-weight: bold;
+  z-index: 3;
+}
+
+/* Optional upload prompt text */
+.upload-text {
+  color: #333;
+  font-size: 16px;
+  text-align: center;
+}
+/* Input box near upload */
+.custom-text-second {
+  position: absolute;
+  bottom: 210px; /* Match image position */
+  left: 320px; /* To the right of the image box */
+  width: 250px;
+  /* padding: 10px; */
+  font-size: 25px;
+  border-radius: 8px;
+  /* z-index: 5; */
+  /* background-color: #fff; */
+  color: green;
+  font-family: 'Anek Malayalam', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+  font-weight: bold;
+}
+.custom-text-third {
+  position: absolute;
+  bottom: 195px; /* Match image position */
+  left: 320px; /* To the right of the image box */
+  width: 400px;
+  /* padding: 10px; */
+  font-size: 18px;
+  border-radius: 8px;
+  /* z-index: 5; */
+  /* background-color: #fff; */
+  color: green;
+  font-family: 'Anek Malayalam', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+  /* border: 1px solid black; */
+}
+.download-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #2d89ef;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.download-button:hover {
+  background-color: #1b5dbf;
+}

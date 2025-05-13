@@ -5,13 +5,15 @@
   align-items: center;
   min-height: 100vh;
   background-color: #eee;
+  padding: 20px;
 }
 
 /* Wrapper to contain the poster image and elements */
 .poster-wrapper {
   position: relative;
-  width: 768px;
-  height: 1194px; /* Same height as your poster image */
+  width: 100%;
+  max-width: 768px;
+  aspect-ratio: 768 / 1194; /* Maintain poster aspect ratio */
 }
 
 /* Poster background */
@@ -26,10 +28,10 @@
 /* Upload area for white space */
 .upload-area.second {
   position: absolute;
-  bottom: 193px;
-  left: 110px;
-  width: 192px;
-  height: 279px;
+  bottom: 16.2%;
+  left: 14.3%;
+  width: 25%;
+  height: 23.3%;
   background-color: rgba(255, 255, 255, 0.3);
   display: flex;
   justify-content: center;
@@ -42,21 +44,23 @@
 /* Uploaded image in the white box */
 .image-layer.second {
   position: absolute;
-  width: 190px;
-  height: 279px;
+  width: 25%;
+  height: 23.3%;
   object-fit: cover;
   z-index: 2;
+  left: 14.3%;
+  bottom: 16.2%;
   border-radius: 15px;
 }
 
 /* Text overlay */
 .custom-text.second {
   position: absolute;
-  top: 125px;
-  left: 50px;
-  width: 500px;
+  top: 10.5%;
+  left: 6.5%;
+  width: 65%;
   color: #ffffff;
-  font-size: 22px;
+  font-size: 2.2vw;
   text-align: left;
   font-weight: bold;
   z-index: 3;
@@ -68,41 +72,32 @@
   font-size: 16px;
   text-align: center;
 }
+
 /* Input box near upload */
 .custom-text-second {
   position: absolute;
-  bottom: 210px; /* Match image position */
-  left: 320px; /* To the right of the image box */
-  width: 250px;
-  /* padding: 10px; */
-  font-size: 25px;
+  bottom: 17.6%;
+  left: 43%;
+  width: 33%;
+  font-size: 2.5vw;
   border-radius: 8px;
-  /* z-index: 5; */
-  /* background-color: #fff; */
   color: green;
   font-family: 'Anek Malayalam', sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-variation-settings: 'wdth' 100;
   font-weight: bold;
 }
+
 .custom-text-third {
   position: absolute;
-  bottom: 195px; /* Match image position */
-  left: 320px; /* To the right of the image box */
-  width: 400px;
-  /* padding: 10px; */
-  font-size: 18px;
+  bottom: 16.3%;
+  left: 43%;
+  width: 45%;
+  font-size: 2vw;
   border-radius: 8px;
-  /* z-index: 5; */
-  /* background-color: #fff; */
   color: green;
   font-family: 'Anek Malayalam', sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-variation-settings: 'wdth' 100;
-  /* border: 1px solid black; */
 }
+
+/* Download button */
 .download-button {
   margin-top: 20px;
   padding: 10px 20px;
@@ -116,4 +111,40 @@
 
 .download-button:hover {
   background-color: #1b5dbf;
+}
+
+/* --- Mobile Styles --- */
+@media (max-width: 600px) {
+  .poster-wrapper {
+    width: 100%;
+  }
+
+  .custom-text.second,
+  .custom-text-second,
+  .custom-text-third {
+    font-size: 4vw;
+    width: 80%;
+    left: 10%;
+  }
+
+  .upload-area.second,
+  .image-layer.second {
+    left: 10%;
+    width: 40%;
+    height: 30%;
+  }
+
+  .custom-text-second {
+    bottom: 18%;
+    left: 55%;
+    width: 35%;
+    font-size: 3.5vw;
+  }
+
+  .custom-text-third {
+    bottom: 14.5%;
+    left: 55%;
+    width: 35%;
+    font-size: 3vw;
+  }
 }

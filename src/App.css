@@ -6,13 +6,16 @@
   align-items: center;
   min-height: 100vh;
   background-color: #eee;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 /* Poster Wrapper */
 .poster-wrapper {
   position: relative;
-  width: 768px;
-  height: 1194px; /* Match your background image size */
+  width: 100%;
+  max-width: 768px;
+  aspect-ratio: 768 / 1194;
 }
 
 /* Background Image */
@@ -26,10 +29,10 @@
 /* Upload Area */
 .upload-area {
   position: absolute;
-  bottom: 193px;
-  left: 110px;
-  width: 192px;
-  height: 279px;
+  bottom: 16.2%;
+  left: 14.3%;
+  width: 25%;
+  height: 23.4%;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 15px;
   display: flex;
@@ -39,30 +42,30 @@
   z-index: 2;
 }
 
-/* Uploaded Image Style */
+/* Uploaded Image */
 .uploaded-image {
   position: absolute;
-  width: 190px;
-  height: 279px;
+  width: 24.7%;
+  height: 23.4%;
   object-fit: cover;
   border-radius: 15px;
   z-index: 2;
 }
 
-/* Upload Text (Prompt) */
+/* Upload Text */
 .upload-text {
   color: #333;
-  font-size: 16px;
+  font-size: 1rem;
   text-align: center;
 }
 
 /* Editable Text Fields */
 .text-primary {
   position: absolute;
-  bottom: 210px;
-  left: 320px;
-  width: 250px;
-  font-size: 25px;
+  bottom: 17.6%;
+  left: 42%;
+  width: 32.5%;
+  font-size: 2.2vw;
   font-weight: bold;
   color: green;
   font-family: 'Anek Malayalam', sans-serif;
@@ -71,10 +74,10 @@
 
 .text-secondary {
   position: absolute;
-  bottom: 195px;
-  left: 320px;
-  width: 400px;
-  font-size: 18px;
+  bottom: 16.3%;
+  left: 42%;
+  width: 52%;
+  font-size: 1.6vw;
   color: green;
   font-family: 'Anek Malayalam', sans-serif;
   z-index: 3;
@@ -94,4 +97,29 @@
 
 .download-button:hover {
   background-color: #1b5dbf;
+}
+
+/* Media Queries for Small Devices */
+@media (max-width: 480px) {
+  .text-primary {
+    font-size: 4vw;
+    width: 60%;
+    left: 35%;
+  }
+
+  .text-secondary {
+    font-size: 3.2vw;
+    width: 65%;
+    left: 35%;
+  }
+
+  .upload-area {
+    left: 10%;
+    width: 30%;
+  }
+
+  .uploaded-image {
+    left: 10%;
+    width: 29.5%;
+  }
 }

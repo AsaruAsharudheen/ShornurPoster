@@ -1,4 +1,5 @@
 /* Main Container */
+
 .poster-container {
   display: flex;
   flex-direction: column;
@@ -26,8 +27,8 @@
 /* Upload Area */
 .upload-area {
   position: absolute;
-  bottom: 193px;
-  left: 110px;
+  bottom: 201px;
+  left: 142px;
   width: 192px;
   height: 279px;
   background-color: rgba(255, 255, 255, 0.3);
@@ -42,11 +43,29 @@
 /* Uploaded Image Style */
 .uploaded-image {
   position: absolute;
-  width: 190px;
-  height: 279px;
-  object-fit: cover;
+  width: 257px;
+  height: 330px;
+  object-fit: cover; /* Crop and fill */
+  object-position: center top; /* Adjust focus point */
   border-radius: 15px;
   z-index: 2;
+}
+.image-wrapper {
+  position: absolute;
+  width: 257px;
+  height: 330px;
+  overflow: hidden;
+  border-radius: 15px;
+  z-index: 2;
+}
+
+.uploaded-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transform-origin: center center;
+  transition: transform 0.2s ease;
 }
 
 /* Upload Text (Prompt) */
@@ -60,8 +79,8 @@
 .text-primary {
   position: absolute;
   bottom: 210px;
-  left: 320px;
-  width: 250px;
+  left: 380px;
+  width: 370px;
   font-size: 25px;
   font-weight: bold;
   color: green;
@@ -72,10 +91,10 @@
 .text-secondary {
   position: absolute;
   bottom: 195px;
-  left: 320px;
-  width: 400px;
+  left: 380px;
+  width: 370px;
   font-size: 18px;
-  color: green;
+  color: black;
   font-family: 'Anek Malayalam', sans-serif;
   z-index: 3;
 }

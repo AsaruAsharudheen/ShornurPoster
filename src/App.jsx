@@ -4,6 +4,7 @@ import './App.css';
 
 const App = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
+  const [zoom, setZoom] = useState(1); // 1 = 100%
   const posterRef = useRef();
 
   const handleImageChange = (e) => {
@@ -24,6 +25,10 @@ const App = () => {
     });
   };
 
+  const handleZoomChange = (e) => {
+    setZoom(parseFloat(e.target.value));
+  };
+
   return (
     <div className="poster-container">
       <div className="poster-wrapper" ref={posterRef}>
@@ -34,14 +39,17 @@ const App = () => {
           className="poster-bg"
         />
 
-        {/* Image Upload Area */}
+        {/* Upload Area */}
         <label className="upload-area">
           {uploadedImage ? (
-            <img
-              src={uploadedImage}
-              alt="Uploaded"
-              className="uploaded-image"
-            />
+            <div className="image-wrapper">
+              <img
+                src={uploadedImage}
+                alt="Uploaded"
+                className="uploaded-image"
+                style={{ transform: `scale(${zoom})` }}
+              />
+            </div>
           ) : (
             <span className="upload-text">Click to upload image</span>
           )}
@@ -65,6 +73,22 @@ const App = () => {
           suppressContentEditableWarning
         ></p>
       </div>
+
+      {/* Zoom Slider */}
+      {uploadedImage && (
+        <div style={{ marginTop: '15px' }}>
+          <label htmlFor="zoom" style={{ marginRight: '10px' }}>Zoom:</label>
+          <input
+            type="range"
+            id="zoom"
+            min="1"
+            max="2"
+            step="0.01"
+            value={zoom}
+            onChange={handleZoomChange}
+          />
+        </div>
+      )}
 
       {/* Download Button */}
       <button className="download-button" onClick={downloadAsPNG}>

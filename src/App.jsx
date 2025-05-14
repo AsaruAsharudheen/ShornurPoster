@@ -4,7 +4,9 @@ import './App.css';
 
 const App = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
-  const [zoom, setZoom] = useState(1); // 1 = 100%
+  const [zoom, setZoom] = useState(1);
+  const [offsetX, setOffsetX] = useState(0); // left-right
+  const [offsetY, setOffsetY] = useState(0); // up-down
   const posterRef = useRef();
 
   const handleImageChange = (e) => {
@@ -25,14 +27,9 @@ const App = () => {
     });
   };
 
-  const handleZoomChange = (e) => {
-    setZoom(parseFloat(e.target.value));
-  };
-
   return (
     <div className="poster-container">
       <div className="poster-wrapper" ref={posterRef}>
-        {/* Poster Background */}
         <img
           src="/Tag W Photo Official_.png"
           alt="Poster Background"
@@ -47,7 +44,9 @@ const App = () => {
                 src={uploadedImage}
                 alt="Uploaded"
                 className="uploaded-image"
-                style={{ transform: `scale(${zoom})` }}
+                style={{
+                  transform: `scale(${zoom}) translate(${offsetX}px, ${offsetY}px)`,
+                }}
               />
             </div>
           ) : (
@@ -74,23 +73,50 @@ const App = () => {
         ></p>
       </div>
 
-      {/* Zoom Slider */}
+      {/* Image Controls */}
       {uploadedImage && (
-        <div style={{ marginTop: '15px' }}>
-          <label htmlFor="zoom" style={{ marginRight: '10px' }}>Zoom:</label>
-          <input
-            type="range"
-            id="zoom"
-            min="1"
-            max="2"
-            step="0.01"
-            value={zoom}
-            onChange={handleZoomChange}
-          />
+        <div style={{ marginTop: '20px' }}>
+          <div style={{ marginBottom: '10px' }}>
+            <label htmlFor="zoom" style={{ marginRight: '10px' }}>Zoom:</label>
+            <input
+              type="range"
+              id="zoom"
+              min="1"
+              max="2"
+              step="0.01"
+              value={zoom}
+              onChange={(e) => setZoom(parseFloat(e.target.value))}
+            />
+          </div>
+
+          <div style={{ marginBottom: '10px' }}>
+            <label htmlFor="offsetX" style={{ marginRight: '10px' }}>Left/Right:</label>
+            <input
+              type="range"
+              id="offsetX"
+              min="-50"
+              max="50"
+              step="1"
+              value={offsetX}
+              onChange={(e) => setOffsetX(parseInt(e.target.value))}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="offsetY" style={{ marginRight: '10px' }}>Up/Down:</label>
+            <input
+              type="range"
+              id="offsetY"
+              min="-50"
+              max="50"
+              step="1"
+              value={offsetY}
+              onChange={(e) => setOffsetY(parseInt(e.target.value))}
+            />
+          </div>
         </div>
       )}
 
-      {/* Download Button */}
       <button className="download-button" onClick={downloadAsPNG}>
         Download as PNG
       </button>

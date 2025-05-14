@@ -78,10 +78,10 @@
 /* Editable Text Fields */
 .text-primary {
   position: absolute;
-  bottom: 210px;
+  bottom: 205px;
   left: 380px;
   width: 370px;
-  font-size: 25px;
+  font-size: 32px;
   font-weight: bold;
   color: green;
   font-family: 'Anek Malayalam', sans-serif;
@@ -90,7 +90,7 @@
 
 .text-secondary {
   position: absolute;
-  bottom: 195px;
+  bottom: 200px;
   left: 380px;
   width: 370px;
   font-size: 18px;
